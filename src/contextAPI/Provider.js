@@ -13,6 +13,14 @@ function Provider({ children }) {
 
   const addToDeck = (pokemon) => {
     console.log(pokemon);
+    const filter = deckCards.filter(
+      (item) => item.pokemon.name === pokemon.name,
+    );
+
+    if (filter.length === 4) {
+      return alert('Maximun of 4 equals cards per deck')
+    }
+
     if (deckCards.length >= 60) {
       return alert('Maximum cards per deck: 60');
     }
