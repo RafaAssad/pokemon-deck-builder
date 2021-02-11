@@ -8,20 +8,26 @@ import PokemonContext from '../contextAPI/Context';
 import SearchBar from '../components/SearchBar';
 
 const HomePage = () => {
+  // Context <.>.<.><.>.<.><.>.<.><.>.<.>
+
   const { addToDeck } = useContext(PokemonContext);
+
+  // States <.>.<.><.>.<.><.>.<.><.>.<.>
 
   const [card, setCard] = useState([]);
   const [filter, setFilter] = useState('');
 
-  const handleChange = ({ target }) => {
-    setFilter(target.value);
-  };
+  // Component <.>.<.><.>.<.><.>.<.><.>.<.>
 
   useEffect(() => {
     cardsAPI().then((resp) => {
       setCard(Object.values(resp.data));
     });
   }, []);
+
+  const handleChange = ({ target }) => {
+    setFilter(target.value);
+  };
 
   return (
     <section>
