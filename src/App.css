@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: goldenrod;
+}
+
+.deckGrid {
+  display: grid;
+  grid-template-columns: 12fr 12fr 12fr;
+  padding: 20px;
+}
+
+h1 {
+  padding-left: 20px;
+}
+
+button {
+  font-size: larger;
+  background-color: green;
+}
