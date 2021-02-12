@@ -10,7 +10,7 @@ import SearchBar from '../components/SearchBar';
 const HomePage = () => {
   // Context <.>.<.><.>.<.><.>.<.><.>.<.>
 
-  const { addToDeck } = useContext(PokemonContext);
+  const { addToDeck, addName, deckName, deckCards, saveDeck } = useContext(PokemonContext);
 
   // States <.>.<.><.>.<.><.>.<.><.>.<.>
 
@@ -31,12 +31,16 @@ const HomePage = () => {
 
   return (
     <section>
-      <ReactAudioPlayer src={openingTheme} autoPlay volume={0.1} loop />
+      <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop />
       <h1>Create Deck</h1>
-      <SearchBar placeHolder="Search" handleChange={handleChange} />
-      <Link to="/decks">
-        <button className="deck-btn">Go to Deck </button>
+      <SearchBar placeHolder="Search pokemon" handleChange={handleChange} />
+      <Link to="/">
+        <button className="deck-btn">Go to Decks </button>
       </Link>
+      <input type="text" placeholder="Deck Name" onChange={(e) => addName(e.target.value)} />
+      <button type="button" onClick={() => saveDeck(deckName, deckCards)}>
+        Save Deck
+      </button>
       <div className="deckGrid">
         {card.map((card, idx) => (
           <div key={idx}>

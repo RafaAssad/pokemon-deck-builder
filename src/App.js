@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import HomePage from './pages/homePage';
+import NewDeck from './pages/newDeck';
 import DeckList from './pages/deckList';
-// import DeckDetails from './pages/deckDetails';
+import Details from './pages/deckDetails';
 import Provider from './contextAPI/Provider';
 import './App.css';
 
@@ -12,9 +12,9 @@ function App() {
       <Provider>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            {/* <Route path="/decks:id" component={DeckDetails} /> */}
-            <Route path="/decks" component={DeckList} />
+            <Route exact path="/" component={DeckList} />
+            <Route path="/deckdetails/:id" component={Details}/>
+            <Route path="/newdeck" component={NewDeck} />
           </Switch>
         </BrowserRouter>
       </Provider>

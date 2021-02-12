@@ -13,12 +13,10 @@ function Provider({ children }) {
 
   const addToDeck = (pokemon) => {
     console.log(pokemon);
-    const filter = deckCards.filter(
-      (item) => item.pokemon.name === pokemon.name,
-    );
+    const filter = deckCards.filter((item) => item.pokemon.name === pokemon.name);
 
     if (filter.length === 4) {
-      return alert('Maximun of 4 equals cards per deck')
+      return alert('Maximun of 4 equals cards per deck');
     }
 
     if (deckCards.length >= 60) {
@@ -36,6 +34,14 @@ function Provider({ children }) {
     setDeckCards([]);
   };
 
+  const saveDeck = (name, cards) => {
+    const freshDeck = {
+      deckName: name,
+      deckCards: cards,
+    };
+    setDecks((arr) => [...arr, freshDeck]);
+  };
+
   // Context <.>.<.><.>.<.><.>.<.><.>.<.>
 
   const context = {
@@ -50,6 +56,7 @@ function Provider({ children }) {
     addToDeck,
     addName,
     newDeck,
+    saveDeck,
   };
 
   return <PokemonContext.Provider value={context}>{children}</PokemonContext.Provider>;
