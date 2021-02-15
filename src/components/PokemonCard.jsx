@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import PokemonContext from '../contextAPI/Context';
+// import PokemonContext from '../contextAPI/Context';
 
-const PokemonCard = ({ id, name, images }) => {
+const PokemonCard = ({ id, name, images, onClick }) => {
 
   return (
     <img
@@ -9,6 +9,7 @@ const PokemonCard = ({ id, name, images }) => {
       alt={`${id}-${name}`}
       width={'80%'}
       name={name}
+      onClick={onClick}
     />
   );
 };

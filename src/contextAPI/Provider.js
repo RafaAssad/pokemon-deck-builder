@@ -42,6 +42,7 @@ function Provider({ children }) {
       deckCards: cards,
     };
     setDecks((arr) => [...arr, freshDeck]);
+    setDeckCards([]);
   };
 
   // Context <.>.<.><.>.<.><.>.<.><.>.<.>

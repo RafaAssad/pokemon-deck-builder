@@ -34,7 +34,7 @@ const HomePage = () => {
       <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop />
       <h1>Create Deck</h1>
       <input
-        placeHolder="Search Pokemon"
+        placeholder="Search Pokemon"
         type="text"
         onChange={(event) => {
           setSearchTerm(event.target.value);
@@ -44,7 +44,7 @@ const HomePage = () => {
         <button className="deck-btn">Go to Decks </button>
       </Link>
       <input type="text" placeholder="Deck Name" onChange={(e) => addName(e.target.value)} />
-      <button type="button" onClick={() => saveDeck(deckName, deckCards)}>
+      <button type="text" onClick={() => saveDeck(deckName, deckCards)}>
         Save Deck
       </button>
       <div className="deckGrid">
@@ -56,9 +56,9 @@ const HomePage = () => {
           }
         }).map((card, idx) => (
           <div key={idx}>
-            <PokemonCard key={card.id} {...card} />
+            <PokemonCard key={card.id} {...card} onClick={() => addToDeck(card)}/>
             <br />
-            <button onClick={() => addToDeck(card)}>Add to deck</button>
+           {/*  <button onClick={() => addToDeck(card)}>Add to deck</button> */}
           </div>
         ))}
       </div>
