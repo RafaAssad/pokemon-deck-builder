@@ -35,7 +35,9 @@ function Provider({ children }) {
   };
 
   const saveDeck = (name, cards) => {
+    let deckId = Math.floor(Math.random() * 100 + 1);
     const freshDeck = {
+      deckId,
       deckName: name,
       deckCards: cards,
     };

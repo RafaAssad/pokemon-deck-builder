@@ -8,6 +8,7 @@ const PokemonCard = ({ id, name, images }) => {
       src={images.small}
       alt={`${id}-${name}`}
       width={'80%'}
+      name={name}
     />
   );
 };
