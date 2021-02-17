@@ -21,7 +21,7 @@ const HomePage = () => {
 
   useEffect(() => {
     cardsAPI().then((resp) => {
-      setCard(Object.values(resp.data));
+      setCard(Object.values(resp.cards));
     });
   }, []);
 
@@ -33,34 +33,38 @@ const HomePage = () => {
     <section>
       <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop />
       <h1>Create Deck</h1>
-      <input
-        placeholder="Search Pokemon"
-        type="text"
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
-      ></input>
-      <Link to="/">
-        <button className="deck-btn">Go to Decks </button>
-      </Link>
-      <input type="text" placeholder="Deck Name" onChange={(e) => addName(e.target.value)} />
-      <button type="text" onClick={() => saveDeck(deckName, deckCards)}>
-        Save Deck
-      </button>
+      <div className="inp-btn">
+        <input
+          placeholder="Search Pokemon"
+          type="text"
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        ></input>
+        <Link to="/">
+          <button className="deck-btn">Go to Decks </button>
+        </Link>
+        <input type="text" placeholder="Deck Name" onChange={(e) => addName(e.target.value)} />
+        <button type="text" onClick={() => saveDeck(deckName, deckCards)}>
+          Save Deck
+        </button>
+      </div>
       <div className="deckGrid">
-        {card.filter((card)=>{
-          if (searchTerm === "") {
-            return card
-          } else if (card.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return card
-          }
-        }).map((card, idx) => (
-          <div key={idx}>
-            <PokemonCard key={card.id} {...card} onClick={() => addToDeck(card)}/>
-            <br />
-           {/*  <button onClick={() => addToDeck(card)}>Add to deck</button> */}
-          </div>
-        ))}
+        {card
+          .filter((card) => {
+            if (searchTerm === '') {
+              return card;
+            } else if (card.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+              return card;
+            }
+          })
+          .map((card, idx) => (
+            <div key={idx}>
+              <PokemonCard key={card.id} {...card} onClick={() => addToDeck(card)} />
+              <br />
+              {/*  <button onClick={() => addToDeck(card)}>Add to deck</button> */}
+            </div>
+          ))}
       </div>
     </section>
   );

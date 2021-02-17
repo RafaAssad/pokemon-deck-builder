@@ -1,4 +1,4 @@
-const cards = `https://api.pokemontcg.io/v2/cards?q=`;
+const cards = `https://api.pokemontcg.io/v1/cards`;
 
 function cardsAPI() {
   const fetchAPI = fetch(cards).then((resolve) => resolve.json());

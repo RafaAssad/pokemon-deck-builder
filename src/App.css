@@ -38,7 +38,7 @@
 }
 
 body {
-  background-color: goldenrod;
+  background-color: whitesmoke;
 }
 
 .deckGrid {
@@ -48,14 +48,31 @@ body {
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
   padding-left: 20px;
 }
 
 button {
   font-size: larger;
-  background-color: green;
+  background-color: goldenrod;
 }
 
 .search {
   padding-left: 20px;
+}
+
+.imagem {
+  padding: 5px;
+}
+
+.imagem:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.inp-btn {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
