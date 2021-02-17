@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import cardsAPI from '../services/cardsAPI';
+import { cardsAPI, getPokeAPI } from '../services/cardsAPI';
 import PokemonCard from '../components/PokemonCard';
 import ReactAudioPlayer from 'react-audio-player';
 import openingTheme from '../soundEffects/openingTheme.mp3';
@@ -25,6 +25,11 @@ const HomePage = () => {
     });
   }, []);
 
+  const filter = () => {
+    getPokeAPI(searchTerm).then((resp) => {
+      setCard(Object.values(resp.cards));
+    });
+  }
   /*   const handleChange = ({ target }) => {
     setFilter(target.value);
   }; */
@@ -40,7 +45,8 @@ const HomePage = () => {
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}
-        ></input>
+        />
+        <button onClick={() => filter()}>Search</button>
         <Link to="/">
           <button className="deck-btn">Go to Decks </button>
         </Link>

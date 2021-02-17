@@ -14,12 +14,14 @@ const DeckList = () => {
   return (
     <section>
       <h1>Deck List</h1>
+      <div className="inp-btn">
       <SearchBar placeHolder="Search deck" handleChange={handleChange} />
       <Link to="/newdeck">
         <button type="button" onClick={() => newDeck()}>
           New Deck
         </button>
       </Link>
+      </div>
       <BackCards />
     </section>
   );

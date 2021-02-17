@@ -16,9 +16,9 @@ const BackCard = () => {
     <div>
       {decks.map((deck) => {
         return (
-          <div>
+          <div className="back-card">
             <Link to={`/deckdetails/${deck.deckId}`}>
-              <img src={back} width="20%" />
+              <img src={back} width="100%" />
               <h2>{deck.deckName}</h2>
             </Link>
             <button onClick={() => removeDeck(deck.deckId)}>Remove Deck</button>

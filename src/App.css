@@ -76,3 +76,16 @@ button {
   justify-content: center;
   padding: 5px;
 }
+
+.back-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  padding: 5px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
