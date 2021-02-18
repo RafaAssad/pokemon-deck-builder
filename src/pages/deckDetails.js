@@ -38,22 +38,22 @@ const Details = (props) => {
   return (
     <div>
       <h1>Deck Details</h1>
-      <div className="back-card">
-        <h2>{currentDeck.deckName}</h2>
-        <label>
-          Pokemons: {count.p}
+      <h2>{currentDeck.deckName}</h2>
+      <div className="details">
+        <label className="supertype">
+          <div className="card-type">Pokemons: {count.p}</div>
           {count.pa.map((card) => (
             <PokemonCard key={card.id} {...card} />
           ))}
         </label>
-        <label>
-          Energys: {count.e}
+        <label className="supertype">
+          <div className="card-type">Energys: {count.e}</div>
           {count.ea.map((card) => (
             <PokemonCard key={card.id} {...card} />
           ))}
         </label>
-        <label>
-          Trainers: {count.t}
+        <label className="supertype">
+          <div className="card-type">Trainers: {count.t}</div>
           {count.ta.map((card) => (
             <PokemonCard key={card.id} {...card} />
           ))}

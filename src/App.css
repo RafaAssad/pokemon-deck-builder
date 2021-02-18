@@ -88,10 +88,28 @@ button {
 h2 {
   display: flex;
   justify-content: center;
+  padding: 10px;
+  font-size: 40px;
 }
 
 
 h3 {
   display: flex;
   justify-content: center;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+}
+
+.supertype {
+  width: 20%;
+  font-size: larger;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.card-type {
+  padding-bottom: 20px;
 }
