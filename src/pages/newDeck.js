@@ -16,23 +16,30 @@ const HomePage = () => {
 
   const [card, setCard] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
 
   // Component <.>.<.><.>.<.><.>.<.><.>.<.>
 
-  useEffect(() => {
-    cardsAPI().then((resp) => {
+  useEffect(async () => {
+    setLoading(true);
+    await cardsAPI().then((resp) => {
       setCard(Object.values(resp.cards));
     });
+    setLoading(false);
   }, []);
 
-  const filter = () => {
-    getPokeAPI(searchTerm).then((resp) => {
+  const filter = async () => {
+    setLoading(true);
+    await getPokeAPI(searchTerm).then((resp) => {
       setCard(Object.values(resp.cards));
     });
-  }
-  /*   const handleChange = ({ target }) => {
-    setFilter(target.value);
-  }; */
+    setLoading(false);
+  };
+
+  const disableBtn = () => {
+    if (deckCards.length < 24) return true;
+    else return false;
+  };
 
   return (
     <section>
@@ -51,10 +58,12 @@ const HomePage = () => {
           <button className="deck-btn">Go to Decks </button>
         </Link>
         <input type="text" placeholder="Deck Name" onChange={(e) => addName(e.target.value)} />
-        <button type="text" onClick={() => saveDeck(deckName, deckCards)}>
+        <button type="text" disabled={disableBtn()} onClick={() => saveDeck(deckName, deckCards)}>
           Save Deck
         </button>
       </div>
+      <h3>Your deck must have a minimum of 24 and a maximum of 60 cards: {deckCards.length}</h3>
+      {loading && <div>Loading...</div>}
       <div className="deckGrid">
         {card
           .filter((card) => {

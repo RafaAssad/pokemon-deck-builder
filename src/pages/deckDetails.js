@@ -3,11 +3,18 @@ import PokemonContext from '../contextAPI/Context';
 import PokemonCard from '../components/PokemonCard';
 
 const Details = (props) => {
+  // Context <.>.<.><.>.<.><.>.<.><.>.<.>
+
   const { decks } = useContext(PokemonContext);
+
+  // Require id from url <.>.<.><.>.<.><.>.<.><.>.<.>
 
   let id = props.match.params.id;
 
   const currentDeck = decks.find((deck) => deck.deckId == id);
+
+  // Reduce <.>.<.><.>.<.><.>.<.><.>.<.>
+  // { pokemon } = card.pokemon <atributo>
 
   const count = currentDeck.deckCards.reduce(
     (acc, { pokemon }) => {
@@ -28,7 +35,6 @@ const Details = (props) => {
     { p: 0, e: 0, t: 0, pa: [], ea: [], ta: [] }
   );
 
-  console.log(count);
   return (
     <div>
       <h1>Deck Details</h1>
