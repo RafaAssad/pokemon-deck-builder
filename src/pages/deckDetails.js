@@ -37,7 +37,9 @@ const Details = (props) => {
 
   return (
     <div>
-      <h1>Deck Details</h1>
+      <div className="teste-brd">
+        <h1>Deck Details</h1>
+      </div>
       <h2>{currentDeck.deckName}</h2>
       <div className="details">
         <label className="supertype">

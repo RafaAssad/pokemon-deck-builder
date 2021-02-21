@@ -5,6 +5,8 @@ import renderWithRouter from '../services/renderWithRouter.js';
 import Provider from '../contextAPI/Provider';
 import '@testing-library/jest-dom';
 
+// error Support for the experimental syntax 'jsx' isn't currently enabled
+
 describe('homepage', () => {
   test('should render with default props', () => {
     const { container } = renderWithRouter(

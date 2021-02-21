@@ -44,15 +44,21 @@ const HomePage = () => {
   return (
     <section>
       {/* <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop /> */}
-      <h1>Create Deck</h1>
+      <div className="teste-brd">
+        <h1>Create Deck</h1>
+      </div>
       <div className="inp-btn">
         <input
+          /* className="effect-8" */
           placeholder="Search Pokemon"
           type="text"
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}
         />
+        {/* <span class="focus-border">
+            <i></i>
+          </span> */}
         <button onClick={() => filter()}>Search</button>
         <Link to="/">
           <button className="deck-btn">Go to Decks </button>
