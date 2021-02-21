@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { cardsAPI, getPokeAPI } from '../services/cardsAPI';
 import PokemonCard from '../components/PokemonCard';
-import ReactAudioPlayer from 'react-audio-player';
-import openingTheme from '../soundEffects/openingTheme.mp3';
+/* import ReactAudioPlayer from 'react-audio-player';
+import openingTheme from '../soundEffects/openingTheme.mp3'; */
 import PokemonContext from '../contextAPI/Context';
 // import SearchBar from '../components/SearchBar';
 
@@ -43,7 +43,7 @@ const HomePage = () => {
 
   return (
     <section>
-      <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop />
+      {/* <ReactAudioPlayer src={openingTheme} autoPlay={false} volume={0.1} loop /> */}
       <h1>Create Deck</h1>
       <div className="inp-btn">
         <input
@@ -77,7 +77,6 @@ const HomePage = () => {
             <div key={idx}>
               <PokemonCard key={card.id} {...card} onClick={() => addToDeck(card)} />
               <br />
-              {/*  <button onClick={() => addToDeck(card)}>Add to deck</button> */}
             </div>
           ))}
       </div>
