@@ -7,6 +7,9 @@ import openingTheme from '../soundEffects/openingTheme.mp3'; */
 import PokemonContext from '../contextAPI/Context';
 // import SearchBar from '../components/SearchBar';
 
+
+// nome do componente a ser importado = nome da page !!
+
 const HomePage = () => {
   // Context <.>.<.><.>.<.><.>.<.><.>.<.>
 
@@ -14,7 +17,7 @@ const HomePage = () => {
 
   // States <.>.<.><.>.<.><.>.<.><.>.<.>
 
-  const [card, setCard] = useState([]);
+  const [card, setCard] = useState([]); // cards nomenclatura
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -49,16 +52,12 @@ const HomePage = () => {
       </div>
       <div className="inp-btn">
         <input
-          /* className="effect-8" */
           placeholder="Search Pokemon"
           type="text"
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}
         />
-        {/* <span class="focus-border">
-            <i></i>
-          </span> */}
         <button onClick={() => filter()}>Search</button>
         <Link to="/">
           <button className="deck-btn">Go to Decks </button>
@@ -79,7 +78,7 @@ const HomePage = () => {
               return card;
             }
           })
-          .map((card, idx) => (
+          .map((card, idx) => ( 
             <div key={idx}>
               <PokemonCard key={card.id} {...card} onClick={() => addToDeck(card)} />
               <br />
@@ -89,5 +88,5 @@ const HomePage = () => {
     </section>
   );
 };
-
+// index não utilizar como key
 export default HomePage;
