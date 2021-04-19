@@ -116,7 +116,7 @@ button {
   padding: 5px;
 }
 
-.imagem:hover {
+.imagem:hover { 
   cursor: pointer;
   transform: scale(1.1);
 }
